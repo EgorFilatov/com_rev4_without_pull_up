@@ -1,0 +1,15 @@
+timer.cpp:9:1:CTimer::CTimer(long unsigned int, bool, bool)	1
+timer.cpp:17:1:CTimer::~CTimer()	1
+timer.cpp:22:15:long unsigned int CTimer::GetCurrentTime()	3
+timer.cpp:42:6:void CTimer::Run()	3
+timer.cpp:54:15:long unsigned int CTimer::GetDefault()	1
+timer.cpp:59:6:void CTimer::SetDefault(long unsigned int, bool)	1
+timer.cpp:70:6:void CTimer::Set(long unsigned int)	1
+timer.cpp:80:6:void CTimer::Reset()	1
+timer.cpp:91:6:void CTimer::Off()	1
+timer.cpp:97:6:void CTimer::SetEvent()	1
+timer.cpp:103:6:bool CTimer::GetEvent()	1
+timer.cpp:104:6:bool CTimer::IsEvent()	1
+timer.cpp:105:6:bool CTimer::IsOn()	3
+timer.cpp:106:6:bool CTimer::IsOff()	3
+timer.cpp:125:6:void HAL_IncTick()	1

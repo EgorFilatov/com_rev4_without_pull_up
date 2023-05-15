@@ -1,0 +1,15 @@
+../Core/Src/timer.cpp:9:1:CTimer::CTimer(long unsigned int, bool, bool)	24	static
+../Core/Src/timer.cpp:17:1:CTimer::~CTimer()	16	static
+../Core/Src/timer.cpp:22:15:long unsigned int CTimer::GetCurrentTime()	24	static
+../Core/Src/timer.cpp:42:6:void CTimer::Run()	16	static
+../Core/Src/timer.cpp:54:15:long unsigned int CTimer::GetDefault()	16	static
+../Core/Src/timer.cpp:59:6:void CTimer::SetDefault(long unsigned int, bool)	24	static
+../Core/Src/timer.cpp:70:6:void CTimer::Set(long unsigned int)	16	static
+../Core/Src/timer.cpp:80:6:void CTimer::Reset()	16	static
+../Core/Src/timer.cpp:91:6:void CTimer::Off()	16	static
+../Core/Src/timer.cpp:97:6:void CTimer::SetEvent()	16	static
+../Core/Src/timer.cpp:103:6:bool CTimer::GetEvent()	16	static
+../Core/Src/timer.cpp:104:6:bool CTimer::IsEvent()	16	static
+../Core/Src/timer.cpp:105:6:bool CTimer::IsOn()	16	static
+../Core/Src/timer.cpp:106:6:bool CTimer::IsOff()	16	static
+../Core/Src/timer.cpp:125:6:void HAL_IncTick()	8	static

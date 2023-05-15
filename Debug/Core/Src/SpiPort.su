@@ -1,0 +1,10 @@
+../Core/Src/SpiPort.cpp:2:1:SpiPort::SpiPort()	16	static
+../Core/Src/SpiPort.cpp:7:1:SpiPort::SpiPort(GPIO_TypeDef*, uint8_t)	24	static
+../Core/Src/SpiPort.cpp:12:6:void SpiPort::setCS(GPIO_TypeDef*, uint8_t)	24	static
+../Core/Src/SpiPort.cpp:17:6:void SpiPort::setTu(uint8_t*, uint8_t*, uint8_t*, uint8_t*)	24	static
+../Core/Src/SpiPort.cpp:25:6:void SpiPort::select()	16	static
+../Core/Src/SpiPort.cpp:29:6:void SpiPort::unSelect()	16	static
+../Core/Src/SpiPort.cpp:33:9:uint8_t SpiPort::isRxSummOk()	16	static
+../Core/Src/SpiPort.cpp:40:9:uint8_t SpiPort::isChanged()	16	static
+../Core/Src/SpiPort.cpp:54:10:uint8_t* SpiPort::getTs()	16	static
+../Core/Src/SpiPort.cpp:57:10:uint8_t* SpiPort::getTu()	16	static
