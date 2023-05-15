@@ -27,23 +27,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 00000028  00000000  00000000  0002004c  2**0
                   CONTENTS, READONLY
- 12 .debug_info   0000bbca  00000000  00000000  00020074  2**0
+ 12 .debug_info   0000bc72  00000000  00000000  00020074  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_abbrev 00001ee8  00000000  00000000  0002bc3e  2**0
+ 13 .debug_abbrev 00001f04  00000000  00000000  0002bce6  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_aranges 000009a8  00000000  00000000  0002db28  2**3
+ 14 .debug_aranges 000009b8  00000000  00000000  0002dbf0  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_ranges 000008f0  00000000  00000000  0002e4d0  2**3
+ 15 .debug_ranges 00000900  00000000  00000000  0002e5a8  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_macro  00011577  00000000  00000000  0002edc0  2**0
+ 16 .debug_macro  00011577  00000000  00000000  0002eea8  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   0000c588  00000000  00000000  00040337  2**0
+ 17 .debug_line   0000c5cf  00000000  00000000  0004041f  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    00060443  00000000  00000000  0004c8bf  2**0
+ 18 .debug_str    000604b5  00000000  00000000  0004c9ee  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000050  00000000  00000000  000acd02  2**0
+ 19 .comment      00000050  00000000  00000000  000acea3  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00002154  00000000  00000000  000acd54  2**2
+ 20 .debug_frame  00002194  00000000  00000000  000acef4  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -716,6 +716,10 @@ void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart) {
  8000526:	bd80      	pop	{r7, pc}
 
 08000528 <HAL_SPI_ErrorCallback>:
+	__HAL_UART_CLEAR_FEFLAG(huart);
+	huart->ErrorCode = HAL_UART_ERROR_NONE;
+	HAL_UART_RxCpltCallback (huart);
+}
 
 void HAL_SPI_ErrorCallback(SPI_HandleTypeDef *hspi) {
  8000528:	b580      	push	{r7, lr}
@@ -785,6 +789,10 @@ void HAL_SPI_ErrorCallback(SPI_HandleTypeDef *hspi) {
  800059c:	20000277 	.word	0x20000277
 
 080005a0 <HAL_SPI_TxRxCpltCallback>:
+	__HAL_SPI_CLEAR_OVRFLAG(hspi);
+	hspi->ErrorCode = HAL_SPI_ERROR_NONE;
+	spiState = READY;
+}
 
 void HAL_SPI_TxRxCpltCallback(SPI_HandleTypeDef *hspi) {
  80005a0:	b580      	push	{r7, lr}

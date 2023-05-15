@@ -155,7 +155,27 @@ void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart) {
 	//NVIC_SystemReset();
 }
 
+void HAL_UART_DMAErrorCallback(UART_HandleTypeDef *huart) {
+	HAL_UART_AbortReceive(huart);
+	__HAL_UART_CLEAR_PEFLAG(huart);
+	__HAL_UART_CLEAR_NEFLAG(huart);
+	__HAL_UART_CLEAR_FEFLAG(huart);
+	huart->ErrorCode = HAL_UART_ERROR_NONE;
+	HAL_UART_RxCpltCallback (huart);
+}
+
 void HAL_SPI_ErrorCallback(SPI_HandleTypeDef *hspi) {
+	HAL_SPI_Abort(hspi);
+	__HAL_SPI_CLEAR_CRCERRFLAG(hspi);
+	__HAL_SPI_CLEAR_FREFLAG(hspi);
+	__HAL_SPI_CLEAR_MODFFLAG(hspi);
+	__HAL_SPI_CLEAR_OVRFLAG(hspi);
+	hspi->ErrorCode = HAL_SPI_ERROR_NONE;
+	spiState = READY;
+}
+
+void HAL_SPI_DMAErrorCallback(SPI_HandleTypeDef *hspi)
+ {
 	HAL_SPI_Abort(hspi);
 	__HAL_SPI_CLEAR_CRCERRFLAG(hspi);
 	__HAL_SPI_CLEAR_FREFLAG(hspi);
