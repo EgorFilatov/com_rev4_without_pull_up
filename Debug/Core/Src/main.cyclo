@@ -4,17 +4,17 @@ main.cpp:146:6:void HAL_UART_ErrorCallback(UART_HandleTypeDef*)	1
 main.cpp:158:6:void HAL_SPI_ErrorCallback(SPI_HandleTypeDef*)	1
 main.cpp:168:6:void HAL_SPI_TxRxCpltCallback(SPI_HandleTypeDef*)	1
 main.cpp:172:6:void uartProcessing(uint8_t)	17
-main.cpp:210:6:void HAL_UART_TxCpltCallback(UART_HandleTypeDef*)	1
-main.cpp:215:6:void timInit()	1
-main.cpp:224:6:void spiPortInit()	1
-main.cpp:244:5:int main()	20
-main.cpp:358:6:void SystemClock_Config()	3
-main.cpp:398:13:void MX_IWDG_Init()	2
-main.cpp:427:13:void MX_SPI1_Init()	2
-main.cpp:467:13:void MX_USART2_UART_Init()	2
-main.cpp:500:13:void MX_DMA_Init()	1
-main.cpp:521:13:void MX_GPIO_Init()	1
-main.cpp:570:6:void Error_Handler()	1
-main.cpp:579:1:void __static_initialization_and_destruction_0(int, int)	6
-main.cpp:579:1:cpp)	1
-main.cpp:579:1:cpp)	1
+main.cpp:209:6:void HAL_UART_TxCpltCallback(UART_HandleTypeDef*)	1
+main.cpp:214:6:void timInit()	1
+main.cpp:223:6:void spiPortInit()	1
+main.cpp:243:5:int main()	20
+main.cpp:356:6:void SystemClock_Config()	3
+main.cpp:396:13:void MX_IWDG_Init()	2
+main.cpp:425:13:void MX_SPI1_Init()	2
+main.cpp:465:13:void MX_USART2_UART_Init()	2
+main.cpp:498:13:void MX_DMA_Init()	1
+main.cpp:519:13:void MX_GPIO_Init()	1
+main.cpp:568:6:void Error_Handler()	1
+main.cpp:577:1:void __static_initialization_and_destruction_0(int, int)	6
+main.cpp:577:1:cpp)	1
+main.cpp:577:1:cpp)	1
