@@ -1,9 +1,9 @@
-main.cpp:129:6:void HAL_UART_RxCpltCallback(UART_HandleTypeDef*)	1
-main.cpp:135:6:void uartInterrupt(uint8_t)	2
-main.cpp:145:6:void HAL_UART_ErrorCallback(UART_HandleTypeDef*)	1
-main.cpp:157:6:void HAL_SPI_ErrorCallback(SPI_HandleTypeDef*)	1
-main.cpp:167:6:void HAL_SPI_TxRxCpltCallback(SPI_HandleTypeDef*)	1
-main.cpp:171:6:void uartProcessing(uint8_t)	17
+main.cpp:130:6:void HAL_UART_RxCpltCallback(UART_HandleTypeDef*)	1
+main.cpp:136:6:void uartInterrupt(uint8_t)	2
+main.cpp:146:6:void HAL_UART_ErrorCallback(UART_HandleTypeDef*)	1
+main.cpp:158:6:void HAL_SPI_ErrorCallback(SPI_HandleTypeDef*)	1
+main.cpp:168:6:void HAL_SPI_TxRxCpltCallback(SPI_HandleTypeDef*)	1
+main.cpp:172:6:void uartProcessing(uint8_t)	17
 main.cpp:210:6:void HAL_UART_TxCpltCallback(UART_HandleTypeDef*)	1
 main.cpp:215:6:void timInit()	1
 main.cpp:224:6:void spiPortInit()	1

@@ -111,6 +111,7 @@ uint8_t iwdgFlag { 0 };
 SpiPort spiPort[12];
 
 uint8_t port { 0 };
+uint8_t flag { 0 };
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -169,8 +170,8 @@ void HAL_SPI_TxRxCpltCallback(SPI_HandleTypeDef *hspi) {
 }
 
 void uartProcessing(uint8_t num) {
-	switch (uartRxState[num]) {
-	case BUSY:
+	uint8_t invNum = num ^ (1 << 0);
+	if (uartRxState[invNum] == BUSY) {
 		if (huart2.RxXferCount < 0x0035 && huart2.RxXferCount > 0) {
 			if (uartRxTim.IsOff()) {
 				uartRxTim.Reset();
@@ -178,32 +179,31 @@ void uartProcessing(uint8_t num) {
 				if (uartRxTim.GetEvent()) {
 					uartRxTim.Off();
 					HAL_UART_AbortReceive(&huart2);
-					uartRxState[num] = 1;
-					HAL_UART_Receive_DMA(&huart2, uartRx[num], 53);
+					uartRxState[invNum] = BUSY;
+					HAL_UART_Receive_DMA(&huart2, uartRx[invNum], 53);
 				}
 			}
 		}
-		break;
-	case RECEIVED:
+	}
+	if (uartRxState[num] == RECEIVED) {
+		uartRxTim.Off();
 		if (uartRx[num][0] == 0x55 && uartRx[num][1] == 0xAA && uartRx[num][2] == 0x30) {
 			uint16_t uartRxSumm { 0 };
 			for (uint8_t i = 0; i <= 50; i++) {
 				uartRxSumm += uartRx[num][i];
 			}
-			if ((uint8_t) uartRxSumm == uartRx[num][51] && (uint8_t) (uartRxSumm >> 8) == uartRx[num][52] && spiState != BUSY) {
+			if ((uint8_t) uartRxSumm == uartRx[num][51]&& (uint8_t) (uartRxSumm >> 8) == uartRx[num][52] && spiState != BUSY) {
 				for (uint8_t i = 0; i <= 47; i++) {
 					uartRxSaved[i] = uartRx[num][i + 3];
 				}
 			}
 		}
 		uartRxState[num] = READY;
-		uint8_t invNum = num ^ (1 << 0);
 		if (uartRxState[invNum] == RECEIVED) {
 			rxBuffNum = invNum;
 			uartRxState[rxBuffNum] = BUSY;
 			HAL_UART_Receive_DMA(&huart2, uartRx[rxBuffNum], 53);
 		}
-		break;
 	}
 }
 
