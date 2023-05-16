@@ -31,7 +31,8 @@ void SpiPort::unSelect() {
 }
 
 uint8_t SpiPort::isRxSummOk() {
-	if (this->ts[0] + this->ts[1] + this->ts[2] + this->ts[3] + this->ts[4] == this->ts[5]) {
+
+	if ((uint8_t) (this->ts[0] + this->ts[1] + this->ts[2] + this->ts[3] + this->ts[4]) == this->ts[5]) {
 		return 1;
 	}
 	return 0;
