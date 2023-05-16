@@ -191,8 +191,7 @@ void HAL_SPI_TxRxCpltCallback(SPI_HandleTypeDef *hspi) {
 
 void uartProcessing(uint8_t num) {
 	if (uartRxState[num] == BUSY) {
-		if (__HAL_DMA_GET_COUNTER(huart2.hdmarx) < 53
-				&& __HAL_DMA_GET_COUNTER(huart2.hdmarx) > 0) {
+		if (__HAL_DMA_GET_COUNTER(huart2.hdmarx) < 53) {
 			if (uartRxTim.IsOff()) {
 				uartRxTim.Reset();
 			} else if (uartRxTim.GetEvent()) {

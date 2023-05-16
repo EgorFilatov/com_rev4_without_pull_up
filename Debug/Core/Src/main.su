@@ -6,17 +6,17 @@
 ../Core/Src/main.cpp:177:6:void HAL_SPI_DMAErrorCallback(SPI_HandleTypeDef*)	32	static
 ../Core/Src/main.cpp:188:6:void HAL_SPI_TxRxCpltCallback(SPI_HandleTypeDef*)	16	static
 ../Core/Src/main.cpp:192:6:void uartProcessing(uint8_t)	32	static
-../Core/Src/main.cpp:229:6:void HAL_UART_TxCpltCallback(UART_HandleTypeDef*)	16	static
-../Core/Src/main.cpp:234:6:void timInit()	8	static
-../Core/Src/main.cpp:243:6:void spiPortInit()	8	static
-../Core/Src/main.cpp:263:5:int main()	32	static
-../Core/Src/main.cpp:376:6:void SystemClock_Config()	80	static
-../Core/Src/main.cpp:416:13:void MX_IWDG_Init()	8	static
-../Core/Src/main.cpp:445:13:void MX_SPI1_Init()	8	static
-../Core/Src/main.cpp:485:13:void MX_USART2_UART_Init()	8	static
-../Core/Src/main.cpp:518:13:void MX_DMA_Init()	16	static
-../Core/Src/main.cpp:539:13:void MX_GPIO_Init()	48	static
-../Core/Src/main.cpp:588:6:void Error_Handler()	8	static,ignoring_inline_asm
-../Core/Src/main.cpp:597:1:void __static_initialization_and_destruction_0(int, int)	24	static
-../Core/Src/main.cpp:597:1:cpp)	8	static
-../Core/Src/main.cpp:597:1:cpp)	8	static
+../Core/Src/main.cpp:228:6:void HAL_UART_TxCpltCallback(UART_HandleTypeDef*)	16	static
+../Core/Src/main.cpp:233:6:void timInit()	8	static
+../Core/Src/main.cpp:242:6:void spiPortInit()	8	static
+../Core/Src/main.cpp:262:5:int main()	32	static
+../Core/Src/main.cpp:375:6:void SystemClock_Config()	80	static
+../Core/Src/main.cpp:415:13:void MX_IWDG_Init()	8	static
+../Core/Src/main.cpp:444:13:void MX_SPI1_Init()	8	static
+../Core/Src/main.cpp:484:13:void MX_USART2_UART_Init()	8	static
+../Core/Src/main.cpp:517:13:void MX_DMA_Init()	16	static
+../Core/Src/main.cpp:538:13:void MX_GPIO_Init()	48	static
+../Core/Src/main.cpp:587:6:void Error_Handler()	8	static,ignoring_inline_asm
+../Core/Src/main.cpp:596:1:void __static_initialization_and_destruction_0(int, int)	24	static
+../Core/Src/main.cpp:596:1:cpp)	8	static
+../Core/Src/main.cpp:596:1:cpp)	8	static

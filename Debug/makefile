@@ -75,8 +75,8 @@ all: main-build
 main-build: com_rev4_without_pull_up.elf secondary-outputs
 
 # Tool invocations
-com_rev4_without_pull_up.elf com_rev4_without_pull_up.map: $(OBJS) $(USER_OBJS) C:\Users\Egor\Desktop\STM32\com_rev4_without_pull_up\STM32F030R8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-g++ -o "com_rev4_without_pull_up.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m0 -T"C:\Users\Egor\Desktop\STM32\com_rev4_without_pull_up\STM32F030R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="com_rev4_without_pull_up.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+com_rev4_without_pull_up.elf com_rev4_without_pull_up.map: $(OBJS) $(USER_OBJS) C:\Users\e.filatov\Desktop\Enercom_R2\STM32_CODE\com_rev4_without_pull_up\STM32F030R8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-g++ -o "com_rev4_without_pull_up.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m0 -T"C:\Users\e.filatov\Desktop\Enercom_R2\STM32_CODE\com_rev4_without_pull_up\STM32F030R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="com_rev4_without_pull_up.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
