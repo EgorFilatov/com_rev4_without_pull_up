@@ -23,15 +23,14 @@ void SpiPort::setTu(uint8_t *dat0, uint8_t *dat1, uint8_t *dat2, uint8_t *dat3) 
 }
 
 void SpiPort::select() {
-	this->port->BRR = (1 << this->pin);
+	this->port->BSRR |= (1 << (this->pin + 16));
 }
 
 void SpiPort::unSelect() {
-	this->port->BSRR = (1 << this->pin);
+	this->port->BSRR |= (1 << this->pin);
 }
 
 uint8_t SpiPort::isRxSummOk() {
-
 	if ((uint8_t) (this->ts[0] + this->ts[1] + this->ts[2] + this->ts[3] + this->ts[4]) == this->ts[5]) {
 		return 1;
 	}

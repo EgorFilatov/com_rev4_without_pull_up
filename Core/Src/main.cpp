@@ -54,7 +54,7 @@ DMA_HandleTypeDef hdma_usart2_tx;
 #define UART_RX_MS 6 // Время задержки приема по uart (мс)
 #define UART_TX_MS 1500 // Период выдачи по uart (мс)
 #define UART_TX_DELAY 2 // Задержка между выдачами по uart (мс)
-#define SPI_TX_NUM 5 // Количество передач по spi
+#define SPI_TX_NUM 3 // Количество передач по spi
 
 #define READY 0
 #define BUSY 1
@@ -106,7 +106,7 @@ uint8_t uartTxSaved[55] = {0x55,0xAA,  // Контрольные байты (0x55,0xAA)
 
 uint8_t uartTxNum { 0 };
 
-uint8_t iwdgFlag { 0 };
+uint8_t iwdgFlag { 1 };
 
 SpiPort spiPort[12];
 
@@ -227,7 +227,7 @@ void uartProcessing(uint8_t num) {
 
 void HAL_UART_TxCpltCallback (UART_HandleTypeDef *huart)
 {
-	uartTxState = READY;
+	uartTxState = RECEIVED;
 }
 
 void timInit() {
@@ -313,13 +313,13 @@ int main(void)
 	  	/* Приемо-передача по spi */
 		case READY:
 			spiState = BUSY;
-			port == 0 ? spiPort[11].unSelect() : spiPort[port - 1].unSelect();
 			spiPort[port].select();
 			spiPort[port].setTu(&uartRxSaved[4 * port], &uartRxSaved[4 * port + 1], &uartRxSaved[4 * port + 2], &uartRxSaved[4 * port + 3]);
 			HAL_SPI_TransmitReceive_DMA(&hspi1, spiPort[port].getTu(), spiPort[port].getTs(), 6);
 			break;
 		/* Обработка принятого по spi массива */
 		case RECEIVED:
+			spiPort[port].unSelect();
 			spiState = READY;
 			if (spiPort[port].isRxSummOk()) {
 				uartTx[4 * port + 2] = *(spiPort[port].getTs());
@@ -340,11 +340,11 @@ int main(void)
 	  	/* Передача по uart */
 		if (uartTxTim.GetEvent() && uartTxNum == 0) {
 			uartTxNum = 1;
+			uartTxTim.Off();
 		}
 
-		if (uartTxNum != 0 && uartTxState == READY && uartTxDelay.GetEvent()) {
+		if (uartTxState == READY && uartTxNum != 0 && uartTxDelay.GetEvent()) {
 			uartTxState = BUSY;
-			--uartTxNum;
 
 			for (int i = 0; i <= 49; i++) {
 				uartTxSaved[i + 3] = uartTx[i];
@@ -357,9 +357,12 @@ int main(void)
 			uartTxSaved[53] = (uint8_t) uartTxSumm;
 			uartTxSaved[54] = (uint8_t) (uartTxSumm >> 8);
 
+			HAL_UART_Transmit_DMA(&huart2, uartTxSaved, 55);
+		} else if (uartTxState == RECEIVED) {
 			uartTxTim.Reset();
 			uartTxDelay.Reset();
-			HAL_UART_Transmit_DMA(&huart2, uartTxSaved, 55);
+			uartTxState = READY;
+			--uartTxNum;
 		}
     /* USER CODE END WHILE */
 
@@ -425,7 +428,7 @@ static void MX_IWDG_Init(void)
   hiwdg.Instance = IWDG;
   hiwdg.Init.Prescaler = IWDG_PRESCALER_256;
   hiwdg.Init.Window = 4095;
-  hiwdg.Init.Reload = 4095;
+  hiwdg.Init.Reload = 4090;
   if (HAL_IWDG_Init(&hiwdg) != HAL_OK)
   {
     Error_Handler();

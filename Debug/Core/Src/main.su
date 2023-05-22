@@ -10,13 +10,13 @@
 ../Core/Src/main.cpp:233:6:void timInit()	8	static
 ../Core/Src/main.cpp:242:6:void spiPortInit()	8	static
 ../Core/Src/main.cpp:262:5:int main()	32	static
-../Core/Src/main.cpp:375:6:void SystemClock_Config()	80	static
-../Core/Src/main.cpp:415:13:void MX_IWDG_Init()	8	static
-../Core/Src/main.cpp:444:13:void MX_SPI1_Init()	8	static
-../Core/Src/main.cpp:484:13:void MX_USART2_UART_Init()	8	static
-../Core/Src/main.cpp:517:13:void MX_DMA_Init()	16	static
-../Core/Src/main.cpp:538:13:void MX_GPIO_Init()	48	static
-../Core/Src/main.cpp:587:6:void Error_Handler()	8	static,ignoring_inline_asm
-../Core/Src/main.cpp:596:1:void __static_initialization_and_destruction_0(int, int)	24	static
-../Core/Src/main.cpp:596:1:cpp)	8	static
-../Core/Src/main.cpp:596:1:cpp)	8	static
+../Core/Src/main.cpp:378:6:void SystemClock_Config()	80	static
+../Core/Src/main.cpp:418:13:void MX_IWDG_Init()	8	static
+../Core/Src/main.cpp:447:13:void MX_SPI1_Init()	8	static
+../Core/Src/main.cpp:487:13:void MX_USART2_UART_Init()	8	static
+../Core/Src/main.cpp:520:13:void MX_DMA_Init()	16	static
+../Core/Src/main.cpp:541:13:void MX_GPIO_Init()	48	static
+../Core/Src/main.cpp:590:6:void Error_Handler()	8	static,ignoring_inline_asm
+../Core/Src/main.cpp:599:1:void __static_initialization_and_destruction_0(int, int)	24	static
+../Core/Src/main.cpp:599:1:cpp)	8	static
+../Core/Src/main.cpp:599:1:cpp)	8	static
